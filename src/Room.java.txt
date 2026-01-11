@@ -1,8 +1,0 @@
-public class Room {
-    private int roomNumber;
-    private RoomType type;
-
-    public boolean isAvailable() {
-        return true; // placeholder
-    }
-}
