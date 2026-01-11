@@ -2,7 +2,6 @@ public class Guest {
     private String name;
     private String contactInfo;
 
-    // Constructor
     public Guest(String name, String contactInfo) {
         this.name = name;
         this.contactInfo = contactInfo;

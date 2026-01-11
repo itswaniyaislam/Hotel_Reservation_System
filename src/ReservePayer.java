@@ -2,18 +2,20 @@ public class ReserverPayer {
     private Reservation reservation;
     private double amountPaid;
 
-    // Constructor
     public ReserverPayer(Reservation reservation) {
         this.reservation = reservation;
     }
 
     public void makePayment(double amount) {
-        amountPaid += amount;
-        // TODO: additional payment logic
+        if (amount > 0) {
+            amountPaid += amount;
+        }
     }
 
     public void refundPayment(double amount) {
-        amountPaid -= amount;
+        if (amount > 0 && amount <= amountPaid) {
+            amountPaid -= amount;
+        }
     }
 
     public double getAmountPaid() {

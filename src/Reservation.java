@@ -4,7 +4,6 @@ public class Reservation {
     private String checkInDate;
     private String checkOutDate;
 
-    // Constructor
     public Reservation(Guest guest, Room room, String checkInDate, String checkOutDate) {
         this.guest = guest;
         this.room = room;
@@ -13,11 +12,15 @@ public class Reservation {
     }
 
     public void makeReservation() {
-        room.bookRoom();
+        if (room != null && room.isAvailable()) {
+            room.bookRoom();
+        }
     }
 
     public void cancelReservation() {
-        room.cancelBooking();
+        if (room != null && !room.isAvailable()) {
+            room.cancelBooking();
+        }
     }
 
     public Guest getGuest() {

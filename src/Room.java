@@ -3,7 +3,6 @@ public class Room {
     private RoomType type;
     private boolean available = true;
 
-    // Constructor
     public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
         this.type = type;
@@ -22,11 +21,14 @@ public class Room {
     }
 
     public void bookRoom() {
-        // TODO: booking logic
-        available = false;
+        if (available) {
+            available = false;
+        }
     }
 
     public void cancelBooking() {
-        available = true;
+        if (!available) {
+            available = true;
+        }
     }
 }
