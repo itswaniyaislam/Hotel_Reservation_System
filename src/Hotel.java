@@ -1,19 +1,33 @@
-// Represents a hotel with rooms and a location
-public class Hotel {
+import java.util.ArrayList;
 
+public class Hotel {
     private String name;
     private String location;
+    private ArrayList<Room> rooms = new ArrayList<>();
+
+    // Constructor
+    public Hotel(String name, String location) {
+        this.name = name;
+        this.location = location;
+    }
 
     public void addRoom(Room room) {
-        // TODO: Add room to hotel
+        // TODO: additional logic
+        rooms.add(room);
     }
 
     public void removeRoom(Room room) {
-        // TODO: Remove room from hotel
+        rooms.remove(room);
     }
 
     public Room findRoom(int roomNumber) {
-        // TODO: Find room by number
+        for(Room r : rooms) {
+            if(r.getRoomNumber() == roomNumber) return r;
+        }
         return null;
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
     }
 }

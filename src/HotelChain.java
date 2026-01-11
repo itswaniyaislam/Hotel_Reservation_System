@@ -1,13 +1,24 @@
-// Represents a chain that manages multiple hotels
-public class HotelChain {
+import java.util.ArrayList;
 
+public class HotelChain {
     private String chainName;
+    private ArrayList<Hotel> hotels = new ArrayList<>();
+
+    // Constructor
+    public HotelChain(String chainName) {
+        this.chainName = chainName;
+    }
 
     public void addHotel(Hotel hotel) {
-        // TODO: Add hotel to chain
+        // TODO: implement additional logic if needed
+        hotels.add(hotel);
     }
 
     public void removeHotel(Hotel hotel) {
-        // TODO: Remove hotel from chain
+        hotels.remove(hotel);
+    }
+
+    public ArrayList<Hotel> getHotels() {
+        return hotels;
     }
 }

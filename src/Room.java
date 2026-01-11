@@ -1,19 +1,32 @@
-// Represents a room inside a hotel
 public class Room {
-
     private int roomNumber;
     private RoomType type;
+    private boolean available = true;
+
+    // Constructor
+    public Room(int roomNumber, RoomType type) {
+        this.roomNumber = roomNumber;
+        this.type = type;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public RoomType getType() {
+        return type;
+    }
 
     public boolean isAvailable() {
-        // TODO: Check availability
-        return true;
+        return available;
     }
 
     public void bookRoom() {
-        // TODO: Book the room
+        // TODO: booking logic
+        available = false;
     }
 
     public void cancelBooking() {
-        // TODO: Cancel booking
+        available = true;
     }
 }
