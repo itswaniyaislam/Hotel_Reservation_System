@@ -7,7 +7,7 @@ public class ReserverPayer {
         this.creditCardDetails = creditCardDetails;
     }
 
-    public void createReservation(Reservation reservation) {
+    public void assignReservation(Reservation reservation) {
         this.reservation = reservation;
     }
 }

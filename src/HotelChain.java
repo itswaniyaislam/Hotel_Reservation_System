@@ -12,21 +12,37 @@ public class HotelChain {
 
     public void addHotel(Hotel hotel) {
         if (hotel == null) {
-            throw new IllegalArgumentException("Hotel cannot be null");
+            return;
         }
         hotels.add(hotel);
     }
 
-    public Hotel findHotel(String hotelName) {
-        for (Hotel h : hotels) {
-            if (h.getName().equalsIgnoreCase(hotelName)) {
-                return h;
+    public Hotel findHotelByName(String hotelName) {
+        for (Hotel hotel : hotels) {
+            if (hotel.getName().equalsIgnoreCase(hotelName)) {
+                return hotel;
             }
         }
         return null;
     }
 
-    public ArrayList<Hotel> getHotels() {
-        return hotels;
+    public void makeReservation(Hotel hotel, Reservation reservation) {
+        if (canMakeReservation(hotel, reservation)) {
+            hotel.makeReservation(reservation);
+        }
+    }
+
+    public void cancelReservation(Hotel hotel, Reservation reservation) {
+        if (canCancelReservation(hotel, reservation)) {
+            hotel.cancelReservation(reservation);
+        }
+    }
+
+    private boolean canMakeReservation(Hotel hotel, Reservation reservation) {
+        return hotel != null && reservation != null;
+    }
+
+    private boolean canCancelReservation(Hotel hotel, Reservation reservation) {
+        return hotel != null && reservation != null;
     }
 }
