@@ -7,6 +7,10 @@ public class Hotel {
     private ArrayList<Reservation> reservations;
 
     public Hotel(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Hotel name cannot be empty");
+        }
+
         this.name = name;
         this.rooms = new ArrayList<>();
         this.reservations = new ArrayList<>();
@@ -18,9 +22,10 @@ public class Hotel {
 
     // Room management
     public void addRoom(Room room) {
-        if (room != null) {
-            rooms.add(room);
+        if (room == null) {
+            throw new IllegalArgumentException("Room cannot be null");
         }
+        rooms.add(room);
     }
 
     public Room findRoomByNumber(int roomNumber) {
@@ -34,12 +39,18 @@ public class Hotel {
 
     // Reservation management
     public void makeReservation(Reservation reservation) {
-        if (reservation != null) {
-            reservations.add(reservation);
+        if (reservation == null) {
+            throw new IllegalArgumentException("Reservation cannot be null");
         }
+        if (reservations.contains(reservation)) {
+            throw new IllegalStateException("Reservation already exists");
+        }
+        reservations.add(reservation);
     }
 
     public void cancelReservation(Reservation reservation) {
-        reservations.remove(reservation);
+        if (!reservations.remove(reservation)) {
+            throw new IllegalStateException("Reservation not found");
+        }
     }
 }

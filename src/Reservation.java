@@ -9,6 +9,16 @@ public class Reservation {
     private ArrayList<Room> rooms;
 
     public Reservation(int reservationNumber, Date startDate, Date endDate) {
+        if (reservationNumber <= 0) {
+            throw new IllegalArgumentException("Reservation number must be positive");
+        }
+        if (startDate == null || endDate == null) {
+            throw new IllegalArgumentException("Dates cannot be null");
+        }
+        if (endDate.before(startDate)) {
+            throw new IllegalArgumentException("End date cannot be before start date");
+        }
+
         this.reservationNumber = reservationNumber;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -20,9 +30,10 @@ public class Reservation {
     }
 
     public void addRoom(Room room) {
-        if (room != null) {
-            rooms.add(room);
+        if (room == null) {
+            throw new IllegalArgumentException("Room cannot be null");
         }
+        rooms.add(room);
     }
 
     public ArrayList<Room> getRooms() {
