@@ -1,24 +1,13 @@
 public class ReserverPayer {
+
+    private CreditCard creditCardDetails;
     private Reservation reservation;
-    private double amountPaid;
 
-    public ReserverPayer(Reservation reservation) {
+    public ReserverPayer(CreditCard creditCardDetails) {
+        this.creditCardDetails = creditCardDetails;
+    }
+
+    public void createReservation(Reservation reservation) {
         this.reservation = reservation;
-    }
-
-    public void makePayment(double amount) {
-        if (amount > 0) {
-            amountPaid += amount;
-        }
-    }
-
-    public void refundPayment(double amount) {
-        if (amount > 0 && amount <= amountPaid) {
-            amountPaid -= amount;
-        }
-    }
-
-    public double getAmountPaid() {
-        return amountPaid;
     }
 }

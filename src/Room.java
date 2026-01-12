@@ -1,34 +1,28 @@
 public class Room {
-    private int roomNumber;
+
+    private int number;
     private RoomType type;
-    private boolean available = true;
+    private Guest occupant;
 
-    public Room(int roomNumber, RoomType type) {
-        this.roomNumber = roomNumber;
+    public Room(int number, RoomType type) {
+        this.number = number;
         this.type = type;
+        this.occupant = null;
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public boolean isOccupied() {
+        return occupant != null;
     }
 
-    public RoomType getType() {
-        return type;
+    public void createGuest(Guest guest) {
+        this.occupant = guest;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public void checkoutGuest() {
+        this.occupant = null;
     }
 
-    public void bookRoom() {
-        if (available) {
-            available = false;
-        }
-    }
-
-    public void cancelBooking() {
-        if (!available) {
-            available = true;
-        }
+    public int getNumber() {
+        return number;
     }
 }

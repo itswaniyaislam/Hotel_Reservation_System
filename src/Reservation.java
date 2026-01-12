@@ -1,33 +1,25 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Reservation {
-    private Guest guest;
-    private Room room;
-    private String checkInDate;
-    private String checkOutDate;
 
-    public Reservation(Guest guest, Room room, String checkInDate, String checkOutDate) {
-        this.guest = guest;
-        this.room = room;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+    private int number;
+    private Date startDate;
+    private Date endDate;
+    private ArrayList<Room> rooms;
+
+    public Reservation(int number, Date startDate, Date endDate) {
+        this.number = number;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.rooms = new ArrayList<>();
     }
 
-    public void makeReservation() {
-        if (room != null && room.isAvailable()) {
-            room.bookRoom();
-        }
+    public void addRoom(Room room) {
+        rooms.add(room);
     }
 
-    public void cancelReservation() {
-        if (room != null && !room.isAvailable()) {
-            room.cancelBooking();
-        }
-    }
-
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public Room getRoom() {
-        return room;
+    public ArrayList<Room> getRooms() {
+        return rooms;
     }
 }

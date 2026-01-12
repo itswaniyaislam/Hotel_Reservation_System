@@ -1,17 +1,18 @@
 public class RoomType {
-    private String typeName;
-    private double price;
 
-    public RoomType(String typeName, double price) {
-        this.typeName = typeName;
-        this.price = price;
+    private String kind;
+    private double cost;
+
+    public RoomType(String kind, double cost) {
+        this.kind = kind;
+        this.cost = cost;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getKind() {
+        return kind;
     }
 
-    public double getPrice() {
-        return price;
+    public double getCost() {
+        return cost;
     }
 }

@@ -1,21 +1,29 @@
 import java.util.ArrayList;
 
 public class HotelChain {
-    private String chainName;
-    private ArrayList<Hotel> hotels = new ArrayList<>();
 
-    public HotelChain(String chainName) {
-        this.chainName = chainName;
+    private String name;
+    private ArrayList<Hotel> hotels;
+
+    public HotelChain(String name) {
+        this.name = name;
+        this.hotels = new ArrayList<>();
     }
 
     public void addHotel(Hotel hotel) {
-        if (hotel != null && !hotels.contains(hotel)) {
-            hotels.add(hotel);
+        if (hotel == null) {
+            throw new IllegalArgumentException("Hotel cannot be null");
         }
+        hotels.add(hotel);
     }
 
-    public void removeHotel(Hotel hotel) {
-        hotels.remove(hotel);
+    public Hotel findHotel(String hotelName) {
+        for (Hotel h : hotels) {
+            if (h.getName().equalsIgnoreCase(hotelName)) {
+                return h;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Hotel> getHotels() {
