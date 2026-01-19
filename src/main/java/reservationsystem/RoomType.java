@@ -1,5 +1,5 @@
+package reservationsystem;
 public class RoomType {
-
     private String kind;
     private double cost;
 
@@ -10,7 +10,6 @@ public class RoomType {
         if (cost < 0) {
             throw new IllegalArgumentException("Room cost cannot be negative");
         }
-
         this.kind = kind;
         this.cost = cost;
     }
